@@ -1,0 +1,27 @@
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.dialects.postgresql import JSON
+
+db = SQLAlchemy()
+
+class BaseModel(db.Model):
+  ''' Base model for all objects '''
+  __abstract__ = True
+
+
+class Users(BaseModel):
+  ''' Model for users '''
+
+  __tablename__ = 'YummyUsers'
+
+  id = db.Column(db.Integer, primary_key = True)
+  name = db.Column(JSON)
+  email = db.Column(JSON)
+  password = db.Column(JSON)
+
+  def __init__(self, name, email, password):
+    self.name = name
+    self.email = email
+    self.password = password
+
+  def __repr__(self):
+    return '<id {}>'.format(self.id)
