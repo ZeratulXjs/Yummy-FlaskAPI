@@ -4,3 +4,4 @@ vscode/*
 *.py~
 venv-3.4/*
 __pycache__/*
+.cache/*

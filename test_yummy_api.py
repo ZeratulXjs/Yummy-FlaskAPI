@@ -4,5 +4,7 @@ import models
 import manage
 
 #Test different classes for valid input acceptance and processing
-class ValidTestCase(unittest.TestCase):
-    pass
+class UserdbTestCase(unittest.TestCase):
+    def setUp(self):
+        self.userdb = Users()
+        
