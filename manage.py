@@ -1,9 +1,15 @@
+import os
 from flask_script import Manager
 from flask_migrate import Migrate, MigrateCommand
-from yummy_api import app,db
+
+# Local imports
+from app.models import db, Users, Recipes
+
+# Set variables
+app = create_app(config_name=os.getenv('APP_SETTINGS'))
 
 '''
-To manage any changes in the models, migrations will be managed by
+For any changes in the models, migrations will be managed by
 Flask-Migrate and external scripts will be run through Flask-Script
 
 '''

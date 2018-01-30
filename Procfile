@@ -1,1 +1,1 @@
-web: gunicorn app:yummy_api
+web: gunicorn app:run
