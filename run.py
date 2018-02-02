@@ -21,8 +21,8 @@ def create_app(config_name):
     
   api.init_app(app)  
   db.init_app(app)
-  
-  app.run(debug=True)  
+  return app
+ 
   
 if __name__ == "__main__":
-  create_app(config_name)
+  create_app(config_name).run(debug=True)  

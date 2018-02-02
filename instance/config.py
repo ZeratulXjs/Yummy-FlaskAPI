@@ -6,7 +6,7 @@ POSTGRES = {
   'pw' : 'postgres',  
   'host' : 'localhost',
   'port' : '5432',
-  'db' : 'YummyUsers',
+  'db' : 'yummyapi',
 }
 
 class Config(object):

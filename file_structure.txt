@@ -1,12 +1,12 @@
 |--app                     #
 |   |- __init__.py         #
-|                          #
+|   |-- endpoints.py           #
+|   |-- models.py                      #
 |--instance                #
 |     |- config.py         #
 |     |- init.py           #
 |                          #
-|-- endpoints.py           #
-|-- models.py
+
 |-- run.py
 |-- requirments.txt
 |-- test_api.py
