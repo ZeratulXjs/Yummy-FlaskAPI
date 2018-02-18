@@ -27,4 +27,3 @@ recipe_detail = api.model('Recipe details', {
   'title': fields.String(required=True, description='Recipe title'),
   'text': fields.String(required=True, description='Recipe steps')    
 })
-

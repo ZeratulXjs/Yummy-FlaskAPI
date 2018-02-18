@@ -9,14 +9,14 @@ class CRUD():
 
   '''
 
-  def add(self, Resource):
+  def add(Resource):
     db.session.add(Resource)
     return db.session.commit()
 
   def update(self):
     return db.session.commit()
 
-  def delete(self, Resource):
+  def delete(Resource):
     db.session.delete(Resource)
     return db.session.commit()
 
@@ -33,12 +33,14 @@ class Users(db.Model, CRUD):
   name = db.Column(db.String(50), nullable = False)
   email = db.Column(db.String(50), unique = True, nullable = False)
   password = db.Column(db.String(400))
+  recipes = db.Column(db.String(2000))
   
 
   def __init__(self, name, email, password):
     self.name = name
     self.email = email
     self.password = password
+    
 
   def __repr__(self):
     return '<User %r>' % self.public_id
@@ -63,8 +65,10 @@ class Recipes(db.Model, CRUD):
   )
   if date_modified is None:
     date_modified = date_created
-  
-  author = db.relationship('Users', backref=db.backref('recipes', lazy='dynamic'))
+
+  author_id = db.Column(db.Integer, db.ForeignKey("YummyUsers.id"))
+
+  author = db.relationship('Users', foreign_keys=[author_id])
   
   def __init__(self, title, text, date_created=None, date_modified=None):
     self.title = title

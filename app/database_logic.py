@@ -3,6 +3,9 @@ from passlib.hash import sha256_crypt
 # local imports
 from app.models import db, Users, Recipes
 
+'''
+Create items
+'''
 def create_user(data):
   name = data.get('name')
   email = data.get('email')
@@ -15,12 +18,39 @@ def create_recipe(data):
   text = data.get('text')
   recipe = Recipes(title, text)
   Recipes.add(recipe)
+
+'''
+Read items
+'''
+
+def read_user_list(data):
+  pass
+
+def read_user(data):
+  pass
+
+def read_recipe_list(data):
+  pass
   
+def read_recipe(data):
+  pass
+
+'''
+Update items
+'''
+
 def update_recipe(recipe_id, data):
   recipe = Recipes.query.filter(Recipes.id == recipe_id).one()
   recipe.title = data.get('title')
   recipe.text = data.get('text')
   Recipes.update(recipe)
+
+'''
+Delete items
+'''
+
+def delete_user(data):
+  pass
 
 def delete_recipe(recipe_id):
   recipe = Recipes.query.filter(Recipes.id == recipe_id).one()
